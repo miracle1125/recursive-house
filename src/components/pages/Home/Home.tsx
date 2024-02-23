@@ -25,7 +25,7 @@ const Home = () => {
 
   const dataLength = useMemo(() => {
     return (
-      data?.pages.reduce((prev, current) => prev + current.data.length, 0) || 0
+      data?.pages.reduce((prev, current) => prev + current.data?.length, 0) || 0
     );
   }, [data]);
 
@@ -73,7 +73,7 @@ const Home = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 max-w-[1500px]">
               {data?.pages?.map((group, i) => (
                 <React.Fragment key={i}>
-                  {group.data.map((item) => (
+                  {group.data?.map((item) => (
                     <ItemCard card={item} key={item.id} />
                   ))}
                 </React.Fragment>
