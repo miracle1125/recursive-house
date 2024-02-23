@@ -1,0 +1,42 @@
+//https://code.visualstudio.com/docs/getstarted/settings
+{
+  "files.exclude": {
+    "**/*.js": {
+      "when": "$(basename).ts"
+    }, // hides js files when there is a base .ts file https://github.com/microsoft/vscode/issues/869#issuecomment-256918658
+    "**/*.js.map": true,
+    "**/.idea": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  "editor.wordWrap": "off",
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.formatOnSave": true,
+  // "editor.codeActionsOnSave": {
+  //     "source.fixAll": true
+  // },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // "eslint.format.enable": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.lintTask.enable": true,
+  "explorer.autoReveal": true,
+  "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+  "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "javascript.suggest.completeFunctionCalls": true,
+  "typescript.suggest.completeFunctionCalls": true,
+  "search.showLineNumbers": true,
+  "search.smartCase": true,
+  "workbench.editor.enablePreview": false,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "cSpell.words": ["formik", "managerhub", "timeframe"]
+}
