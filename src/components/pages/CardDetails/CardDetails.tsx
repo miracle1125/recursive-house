@@ -6,8 +6,8 @@ import { MagicCard } from '@/apis/models/card';
 
 const CardDetails = ({ card }: { card: MagicCard }) => {
   return (
-    <div className="flex  flex-col pt-4 items-center h-full">
-      <div className="w-[800px]">
+    <div className="flex  flex-col pt-4 items-center h-full px-4">
+      <div className="w-[800px] max-w-full">
         <Link href={'/'}>
           <Button
             variant={ButtonVariant.outlined}
@@ -20,8 +20,8 @@ const CardDetails = ({ card }: { card: MagicCard }) => {
         </Link>
       </div>
 
-      <Card className="w-[800px]">
-        <div className="flex gap-4">
+      <Card className="w-[800px] max-w-full">
+        <div className="flex gap-4 flex-wrap">
           {card.imageUrl ? (
             <img
               src={card.imageUrl}
@@ -33,7 +33,7 @@ const CardDetails = ({ card }: { card: MagicCard }) => {
               No image
             </div>
           )}
-          <div>
+          <div className="flex-1 max-w-full">
             <h2 className="mb-4">{card.name}</h2>
             <div>
               Description: <b>{card.text}</b>
