@@ -1,12 +1,12 @@
-import { Dialog, Transition } from '@headlessui/react';
+import {Dialog, Transition} from '@headlessui/react';
 import cn from 'classnames';
-import { Fragment, FunctionComponent, ReactNode } from 'react';
+import {Fragment, FunctionComponent, ReactNode} from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
-import { ReactComponent as CloseIcon } from '@/assets/icons/close.svg';
+import CloseIcon from '@/assets/icons/close.svg';
 
-import { Button, ButtonVariant } from '../Button';
-import { IconSize, IconWrapper } from '../IconWrapper';
+import {Button, ButtonVariant} from '../Button';
+import {IconSize, IconWrapper} from '../IconWrapper';
 
 export const SIDEBAR_WIDTH = 216;
 
@@ -37,7 +37,7 @@ const POSITION_STYLE_MAP = {
 };
 
 const getSizeStyles = (variant: ModalSize) => {
-  switch (variant) {
+  switch(variant) {
     case ModalSize.sm:
       return 'max-w-[448px]';
     case ModalSize.md:
@@ -108,7 +108,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
       <Dialog
         as="div"
         className="relative z-30"
-        onClose={!disableClose && handleClose ? (handleClose as any) : () => {}}
+        onClose={!disableClose && handleClose ? (handleClose as any) : () => { }}
       >
         <Transition.Child
           as={Fragment}
