@@ -4,7 +4,7 @@ import JSZip from 'jszip';
 import { startCase, upperFirst, values } from 'lodash';
 import { Cycle } from '../apis/models/cycles';
 import { domToPng } from 'modern-screenshot';
-import { POPULAR_DOMAINS } from '../json/domains';
+// import { POPULAR_DOMAINS } from '../json/domains';
 
 export const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
 
@@ -44,17 +44,17 @@ export const getPageName = (path: string) => {
   return pageName;
 };
 
-export const getFirstSubscribedTeamRoute = (
-  subscribedTeams: Team[],
-  isTeamOverviewEnabled?: boolean,
-) => {
-  return (
-    subscribedTeams?.[0] &&
-    `/team/${subscribedTeams[0].id}/${
-      isTeamOverviewEnabled ? 'overview' : 'standup'
-    }`
-  );
-};
+// export const getFirstSubscribedTeamRoute = (
+//   subscribedTeams: Team[],
+//   isTeamOverviewEnabled?: boolean,
+// ) => {
+//   return (
+//     subscribedTeams?.[0] &&
+//     `/team/${subscribedTeams[0].id}/${
+//       isTeamOverviewEnabled ? 'overview' : 'standup'
+//     }`
+//   );
+// };
 
 export const parseStringToJson = (objAsString: string) => {
   try {
@@ -225,39 +225,39 @@ export const copyCurrentUrl = () => {
   copyToClipboard(url);
 };
 
-export const moveArrayElement = (
-  array: any[],
-  fromIndex: number,
-  toIndex: number,
-) => {
-  if (toIndex === fromIndex) {
-    return array;
-  }
-  if (toIndex < 0) {
-    toIndex = 0;
-  }
-  if (toIndex > array.length - 1) {
-    toIndex = array.length - 1;
-  }
-  const movingElement = array[fromIndex];
-  let updatedArray = [...array];
-  updatedArray.splice(fromIndex, 1);
+// export const moveArrayElement = (
+//   array: any[],
+//   fromIndex: number,
+//   toIndex: number,
+// ) => {
+//   if (toIndex === fromIndex) {
+//     return array;
+//   }
+//   if (toIndex < 0) {
+//     toIndex = 0;
+//   }
+//   if (toIndex > array.length - 1) {
+//     toIndex = array.length - 1;
+//   }
+//   const movingElement = array[fromIndex];
+//   let updatedArray = [...array];
+//   updatedArray.splice(fromIndex, 1);
 
-  if (toIndex > fromIndex) {
-    updatedArray = [
-      ...updatedArray.slice(0, toIndex),
-      movingElement,
-      ...updatedArray.slice(toIndex),
-    ];
-  } else {
-    updatedArray = [
-      ...updatedArray.slice(0, toIndex),
-      movingElement,
-      ...updatedArray.slice(toIndex),
-    ];
-  }
-  return updatedArray;
-};
+//   if (toIndex > fromIndex) {
+//     updatedArray = [
+//       ...updatedArray.slice(0, toIndex),
+//       movingElement,
+//       ...updatedArray.slice(toIndex),
+//     ];
+//   } else {
+//     updatedArray = [
+//       ...updatedArray.slice(0, toIndex),
+//       movingElement,
+//       ...updatedArray.slice(toIndex),
+//     ];
+//   }
+//   return updatedArray;
+// };
 
 export const teamIdExtractor = (path: string) => {
   const teamId = path.match(/\/team\/(\d+)/)?.[1];
@@ -281,15 +281,15 @@ export const isAppleDevice = () => {
   return /(Mac|iPhone|iPod|iPad)/i.test(userAgent);
 };
 
-export const isSomeSlaSettingTruthy = (slaSettings?: SlaSettings | null) => {
-  if (slaSettings?.[SlaType.BUG]) {
-    const bugSlaSettings = slaSettings[SlaType.BUG];
-    return values(bugSlaSettings).some((setting) =>
-      values(setting).some((value) => !!value),
-    );
-  }
-  return false;
-};
+// export const isSomeSlaSettingTruthy = (slaSettings?: SlaSettings | null) => {
+//   if (slaSettings?.[SlaType.BUG]) {
+//     const bugSlaSettings = slaSettings[SlaType.BUG];
+//     return values(bugSlaSettings).some((setting) =>
+//       values(setting).some((value) => !!value),
+//     );
+//   }
+//   return false;
+// };
 
 export const scrapePageMetadata = (
   href?: string,
@@ -330,28 +330,28 @@ export const extractLinkNameFromUrl = (url: string) => {
   return null;
 };
 
-export const sortAndClearKanbanCycles = (cycles: Cycle[]) => {
-  if (!cycles) {
-    return [];
-  }
-  const sortedRetroData = [...cycles].sort((a: Cycle, b: Cycle) => {
-    return new Date(b.date!).getTime() - new Date(a.date!).getTime();
-  }) as Cycle[];
+// export const sortAndClearKanbanCycles = (cycles: Cycle[]) => {
+//   if (!cycles) {
+//     return [];
+//   }
+//   const sortedRetroData = [...cycles].sort((a: Cycle, b: Cycle) => {
+//     return new Date(b.date!).getTime() - new Date(a.date!).getTime();
+//   }) as Cycle[];
 
-  // remove cycles from end of the list if they have no completed issues
-  while (
-    sortedRetroData.length > 1 &&
-    sortedRetroData[sortedRetroData.length - 1] &&
-    Number(
-      sortedRetroData[sortedRetroData.length - 1]!.completedJiraIssue?.count ||
-        0,
-    ) === 0
-  ) {
-    sortedRetroData.pop();
-  }
+//   // remove cycles from end of the list if they have no completed issues
+//   while (
+//     sortedRetroData.length > 1 &&
+//     sortedRetroData[sortedRetroData.length - 1] &&
+//     Number(
+//       sortedRetroData[sortedRetroData.length - 1]!.completedJiraIssue?.count ||
+//         0,
+//     ) === 0
+//   ) {
+//     sortedRetroData.pop();
+//   }
 
-  return sortedRetroData;
-};
+//   return sortedRetroData;
+// };
 
 export const copyContentToClipboard = (element: HTMLElement) => {
   const range = document.createRange();
@@ -371,10 +371,10 @@ export const returnFirstValueIfArray = (value?: any) => {
 };
 
 //ref: https://webocreation.com/javascript-custom-email-validation-for-company-email-only-unbounce-page/
-export const isBusinessEmail = (email: string) => {
-  const domain = email.trim().split('@').pop();
-  return !POPULAR_DOMAINS.includes(domain!);
-};
+// export const isBusinessEmail = (email: string) => {
+//   const domain = email.trim().split('@').pop();
+//   return !POPULAR_DOMAINS.includes(domain!);
+// };
 
 export const getRandomColor = () => {
   const red = Math.floor(Math.random() * 256);

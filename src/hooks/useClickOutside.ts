@@ -52,7 +52,7 @@ const useClickOutside = ({
       document.removeEventListener('keydown', escapeKeyHandler);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wrapperRef, popoverRef, openMenu, ...dependencies]);
+  }, [wrapperRef, popoverRef, openMenu]);
 
   return null;
 };
