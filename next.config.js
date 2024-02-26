@@ -1,5 +1,5 @@
 module.exports = {
-  distDir: 'build',
+  // distDir: 'build',
   output: process.env.NEXT_BUILD_TYPE ?? 'standalone',
   images: {
     // disable static image optimization for export builds
