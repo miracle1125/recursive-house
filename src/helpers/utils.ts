@@ -1,4 +1,4 @@
-import { SlaSettings, SlaType, Team } from '@/apis/models/teams';
+import { SlaSettings, SlaType, Team } from '../apis/models/teams';
 import { getCookie } from 'cookies-next';
 import JSZip from 'jszip';
 import { startCase, upperFirst, values } from 'lodash';
